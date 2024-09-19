@@ -66,8 +66,8 @@ module.exports = {
   },
   
   async deleteThought(req, res) {
-    try {
-      const thought = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
+    // try {
+      const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
 
       if (!thought) {
         return res.status(404).json({ message: 'No thought with this id!' });
@@ -86,9 +86,9 @@ module.exports = {
       }
 
       res.json({ message: 'Thought successfully deleted!' });
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    // } catch (err) {
+    //   res.status(500).json(err);
+    // }
   },
  
   async addReaction(req, res) {
